@@ -14,11 +14,6 @@ class PlayerPair:
     Simulates a single round of play between this and another Player object
     '''
     p1, p2 = self.players
-    # RELEASE = 0 # (R, "reward" in literature) when both players collude
-    # TREAT = 100 # (T, "temptation" in literature) when you betray your partner
-    # SEVERE_PUNISHMENT = -500 # (S, "sucker" in literature) when your partner betrays you
-    # PUNISHMENT = -250 # (P) when both players betray each other
-    # ERROR = -250
     p1_action, p2_action = p1.move(p2), p2.move(p1)
     # clean up the p1_action returns if something went wrong
     def parse_action(action_str):
@@ -34,12 +29,12 @@ class PlayerPair:
     p2.add_move(p2_action)
 
   def handle_scores(self, p1_action, p2_action) :
+    p1, p2 = self.players
     SENTENCE = 1
     RELEASE = 0
     SEVERE_SENTENCE = 4
     PUNISHMENT = 2
 
-    p1, p2 = self.players
     if p1_action == 'c':
       if p2_action == 'c':
         # both players colluded, get normal sentence

@@ -28,7 +28,7 @@ class Player:
     self.moves = ''.join([self.moves, move])
 
   def __repr__(self):
-    strat_description = ' '.join(self.strategy_name.split(' ')[:3])
+    desc = ' '.join(self.strategy_name.split(' ')[:3])
     return 'Player<team_name: {}, score: {}, strategy: {}>'.format(self.team_name,
         self.score,
-        strat_description)
+        desc)

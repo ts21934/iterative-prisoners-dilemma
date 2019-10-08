@@ -9,6 +9,9 @@ class PlayerGroup:
     self.players = [Player(m) for m in modules]
 
   def create_pairs(self):
+    '''
+    FIXME: only works with even numbers of players (two to a pair)
+    '''
     pairs = []
     for i, p1 in enumerate(self.players[:-1]):
       for j in range(i):
@@ -17,11 +20,6 @@ class PlayerGroup:
 
   def run(self, num_rounds=1):
     pairs = self.create_pairs()
-    print(pairs)
-    for i, p1 in enumerate(self.players[:-1]):
-      for j in range(i):
-        pairs.append(PlayerPair(p1, self.players[j]))
-
     for i in range(num_rounds):
       for pair in pairs:
         pair.play_round()
