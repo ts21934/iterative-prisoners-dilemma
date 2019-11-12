@@ -7,12 +7,12 @@ class Player:
     self.team_name = module.team_name or 'none'
     self.strategy_name = module.strategy_name or 'none'
     self.strategy_description = module.strategy_description or 'none'
-    self.moves = ''
+    self.prevMove = ''
     self.score = 0
     def player_move(otherPlayer):
       if not module.move:
         return ' '
-      return module.move(self.moves, otherPlayer.moves, self.score, otherPlayer.score)
+      return module.move(self.prevMove, otherPlayer.prevMove)
     self.move = player_move
 
   def add_score(self, value):
@@ -25,7 +25,7 @@ class Player:
     '''
     Adds a new move to this Player's move history
     '''
-    self.moves = ''.join([self.moves, move])
+    self.prevMove = move
 
   def __repr__(self):
     desc = ' '.join(self.strategy_name.split(' ')[:3])

@@ -30,10 +30,10 @@ class PlayerPair:
 
   def handle_scores(self, p1_action, p2_action) :
     p1, p2 = self.players
-    SENTENCE = 1
-    RELEASE = 0
-    SEVERE_SENTENCE = 4
-    PUNISHMENT = 2
+    REWARD = 5
+    SENTENCE = 3
+    PUNISHMENT = 1
+    BETRAYED = 0
 
     if p1_action == 'c':
       if p2_action == 'c':
@@ -42,16 +42,16 @@ class PlayerPair:
         p2.add_score(SENTENCE)
       elif p2_action == 'b':
         # p2 betrayed p1, release p2 and give p1 severe sentence
-        p1.add_score(SEVERE_SENTENCE)
-        p2.add_score(RELEASE)
+        p1.add_score(BETRAYED)
+        p2.add_score(REWARD)
       else:
         # p2 had an error
         print('{} had an error: "{}"'.format(p2, p2_action))
     elif p1_action == 'b':
       if p2_action == 'c':
         # p1 betrayed p2, release p1 and give p2 severe sentence
-        p1.add_score(RELEASE)
-        p2.add_score(SEVERE_SENTENCE)
+        p1.add_score(REWARD)
+        p2.add_score(BETRAYED)
       elif p2_action == 'b':
         # both players betrayed each other, give both players punishment
         p1.add_score(PUNISHMENT)

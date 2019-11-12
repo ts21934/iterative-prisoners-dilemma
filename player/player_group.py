@@ -10,10 +10,10 @@ class PlayerGroup:
 
   def create_pairs(self):
     '''
-    FIXME: only works with even numbers of players (two to a pair)
+    NOTE: only works with even numbers of players (two to a pair)
     '''
     pairs = []
-    for i, p1 in enumerate(self.players[:-1]):
+    for i, p1 in enumerate(self.players):
       for j in range(i):
         pairs.append(PlayerPair(p1, self.players[j]))
     return pairs

@@ -13,7 +13,7 @@ Functions:
     your team's implementation of your strategy (see move() docstring)
 '''
 
-team_name = 'TEAM 0'
+team_name = 'YOUR TEAM NAME'
 strategy_name = 'however you want to describe your strategy'
 strategy_description = 'How does this strategy decide?'
 
