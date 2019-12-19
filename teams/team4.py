@@ -13,9 +13,9 @@ Functions:
     your team's implementation of your strategy (see move() docstring)
 '''
 
-team_name = 'TEAM 4'
-strategy_name = 'however you want to describe your strategy'
-strategy_description = 'How does this strategy decide?'
+team_name = 'NEEP NOOP'
+strategy_name = 'TAT ROF TIT'
+strategy_description = 'In order to maximize inefficiency, choose the opposite of what the opponent did last time? Start with betrayal.'
 
 def move(my_last_move, their_last_move):
     '''
@@ -27,7 +27,10 @@ def move(my_last_move, their_last_move):
         opponent made against you
     Returns 'c' or 'b' for collude or betray.
     '''
-    return 'c'
+    if their_last_move == 'b':        
+        return 'c'
+    else:
+        return 'b'
 
 if __name__ == '__main__':
-  move()
+  print(move('b', 'c'))
